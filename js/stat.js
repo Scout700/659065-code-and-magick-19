@@ -12,15 +12,15 @@
  * @name BAR_HEIGHT = the height of the column
  */
 
-var CLOUD_HEIGHT = 270; // высота "облачка"
-var CLOUD_X = 100; // координата по горизонтали
-var CLOUD_Y = 10; // координата по вертикали
-var GAP = 10; // отступ
-var FONT_GAP = 16; // высота строки текста
-var BAR_GAP = 50; // отступ между столбцами
-var BAR_WIDTH = 40; // ширина столбца
-var TEXT_HEIGHT = CLOUD_Y + 2 * (GAP + FONT_GAP); // высота строк с сообщением о результатах игры
-var BAR_HEIGHT = CLOUD_HEIGHT - TEXT_HEIGHT - 3 * GAP - 2 * FONT_GAP; // высота столбца
+var CLOUD_HEIGHT = 270;
+var CLOUD_X = 100;
+var CLOUD_Y = 10;
+var GAP = 10;
+var FONT_GAP = 16;
+var BAR_GAP = 50;
+var BAR_WIDTH = 40;
+var TEXT_HEIGHT = CLOUD_Y + 2 * (GAP + FONT_GAP);
+var BAR_HEIGHT = CLOUD_HEIGHT - TEXT_HEIGHT - 3 * GAP - 2 * FONT_GAP;
 
 /** draw a polygon block.
  * @param {string} ctx - the context of the canvas that is created in the game.js file
