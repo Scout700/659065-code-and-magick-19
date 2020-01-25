@@ -1,17 +1,5 @@
 'use strict';
 
-/** constants.
- * @name CLOUD_HEIGHT - height polygon block
- * @name CLOUD_X - the starting point of the coordinates on the horizontal
- * @name CLOUD_Y - starting point of vertical coordinates
- * @name GAP - indent
- * @name FONT_GAP - the height of the text line
- * @name BAR_GAP - indent between columns
- * @name BAR_WIDTH - column width
- * @name TEXT_HEIGHT - height of lines with a message about the results of the game
- * @name BAR_HEIGHT = the height of the column
- */
-
 var CLOUD_HEIGHT = 270;
 var CLOUD_X = 100;
 var CLOUD_Y = 10;
