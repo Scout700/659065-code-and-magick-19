@@ -36,7 +36,7 @@ var numberWizards = 4;
 /**
 * find the random element.
 * @param {Array} arr array of string
-* @return {number} return random element
+* @return {string} return random element
 */
 var getRandomNumber = function (arr) {
   var numberElement = Math.floor(Math.random() * arr.length); // находим рандомное число, которое не может быть больше длины массива
