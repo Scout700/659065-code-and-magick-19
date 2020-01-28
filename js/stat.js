@@ -1,22 +1,48 @@
 'use strict';
 
+/** the height of the cloud
+ * @constant {number} */
 var CLOUD_HEIGHT = 270;
+
+/** coordinate x of the cloud rendering start
+ * @constant {number} */
 var CLOUD_X = 100;
+
+/** coordinate y of the cloud rendering start
+ * @constant {number} */
 var CLOUD_Y = 10;
+
+/** indent
+ * @constant {number} */
 var GAP = 10;
+
+/** the height of the text line
+ * @constant {number} */
 var FONT_GAP = 16;
+
+/** indent between columns
+* @constant {number} */
 var BAR_GAP = 50;
+
+/** column width
+* @constant {number} */
 var BAR_WIDTH = 40;
+
+/** height of text lines
+* @constant {number} */
 var TEXT_HEIGHT = CLOUD_Y + 2 * (GAP + FONT_GAP);
+
+/** column height
+* @constant {number} */
 var BAR_HEIGHT = CLOUD_HEIGHT - TEXT_HEIGHT - 3 * GAP - 2 * FONT_GAP;
 
-/** draw a polygon block.
+/**
+ * draw a polygon block.
  * @param {string} ctx - the context of the canvas that is created in the game.js file
  * @param {number} x - the abscissa
  * @param {number} y - the ordinate
  * @param {string} color - fill color
  */
-
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.beginPath();
@@ -41,11 +67,11 @@ var renderCloud = function (ctx, x, y, color) {
   ctx.fill();
 };
 
-/** find the maximum element.
+/**
+ * find the maximum element.
  * @param {Array} arr - array of numbers
  * @return {number} return maximum element
  */
-
 var getMaxElement = function (arr) {
   var maxElement = arr[0];
   for (var i = 1; i < arr.length; i++) {
@@ -59,12 +85,12 @@ var getMaxElement = function (arr) {
   return maxElement;
 };
 
-/** player statistics.
+/**
+ * player statistics.
  * @param {string} ctx - the context of the canvas that is created in the game.js file
  * @param {Array} names - array of players that is created in the game.js file
  * @param {Array} times - array of numbers that is created in the game.js file
  */
-
 window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, 110, 20, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, 100, 10, '#fff');
@@ -76,7 +102,7 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Список результатов:', CLOUD_X + 2 * GAP, TEXT_HEIGHT);
 
   var maxTime = getMaxElement(times);
-  names.forEach(function (item, i) {
+  names.forEach(function (name, i) {
     var personalTime = Math.floor(times[i]);
     var personSaturation = Math.floor(Math.random() * 100);
 
