@@ -202,17 +202,17 @@ var setupFireballColor = setupWizardForm.querySelector('.setup-fireball-wrap');
 setupWizardCoat.addEventListener('click', function () {
   var coatColor = getRandomElementFromArray(Wizard.COAT_COLORS);
   setupWizardCoat.style.fill = coatColor;
-  document.querySelector('input[name = coat-color]').value = coatColor;
+  userDialog.querySelector('input[name = coat-color]').value = coatColor;
 });
 
 setupWizardEyes.addEventListener('click', function () {
   var eyesColor = getRandomElementFromArray(Wizard.EYES_COLORS);
   setupWizardEyes.style.fill = eyesColor;
-  document.querySelector('input[name = eyes-color]').value = eyesColor;
+  userDialog.querySelector('input[name = eyes-color]').value = eyesColor;
 });
 
 setupFireballColor.addEventListener('click', function () {
   var fireballColor = getRandomElementFromArray(Wizard.FIREBALL_COLORS);
   setupFireballColor.style.backgroundColor = fireballColor;
-  document.querySelector('input[name = fireball-color]').value = fireballColor;
+  userDialog.querySelector('input[name = fireball-color]').value = fireballColor;
 });
