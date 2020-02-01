@@ -138,7 +138,7 @@ userDialog.querySelector('.setup-similar').classList.remove('hidden');
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = userDialog.querySelector('.setup-close');
 var setupWizardForm = userDialog.querySelector('.setup-wizard-form');
-var userNameInput = userDialog.querySelector('.setup-user-name');
+var userNameInput = setupWizardForm.querySelector('.setup-user-name');
 
 var onPopupEscPress = function (evt) {
   if (evt.key === ESC_KEY) {
@@ -195,8 +195,8 @@ userNameInput.addEventListener('invalid', function () {
   }
 });
 
-var setupWizardCoat = userDialog.querySelector('.wizard-coat');
-var setupWizardEyes = userDialog.querySelector('.wizard-eyes');
+var setupWizardCoat = setupWizardForm.querySelector('.wizard-coat');
+var setupWizardEyes = setupWizardForm.querySelector('.wizard-eyes');
 var setupFireballColor = setupWizardForm.querySelector('.setup-fireball-wrap');
 
 setupWizardCoat.addEventListener('click', function () {
