@@ -1,23 +1,23 @@
 'use strict';
 
 /** the height of the cloud
- * @constant {number} */
+* @constant {number} */
 var CLOUD_HEIGHT = 270;
 
 /** coordinate x of the cloud rendering start
- * @constant {number} */
+* @constant {number} */
 var CLOUD_X = 100;
 
 /** coordinate y of the cloud rendering start
- * @constant {number} */
+* @constant {number} */
 var CLOUD_Y = 10;
 
 /** indent
- * @constant {number} */
+* @constant {number} */
 var GAP = 10;
 
 /** the height of the text line
- * @constant {number} */
+* @constant {number} */
 var FONT_GAP = 16;
 
 /** indent between columns
@@ -36,42 +36,93 @@ var TEXT_HEIGHT = CLOUD_Y + 2 * (GAP + FONT_GAP);
 * @constant {number} */
 var BAR_HEIGHT = CLOUD_HEIGHT - TEXT_HEIGHT - 3 * GAP - 2 * FONT_GAP;
 
+var coords = [
+  {
+    x: 100,
+    y: 10
+  },
+  {
+    x: 205,
+    y: 20
+  },
+  {
+    x: 310,
+    y: 20
+  },
+  {
+    x: 415,
+    y: 20
+  },
+  {
+    x: 520,
+    y: 10
+  },
+  {
+    x: 500,
+    y: 145
+  },
+  {
+    x: 520,
+    y: 210
+  },
+  {
+    x: 520,
+    y: 280
+  },
+  {
+    x: 415,
+    y: 275
+  },
+  {
+    x: 310,
+    y: 280
+  },
+  {
+    x: 205,
+    y: 275
+  },
+  {
+    x: 100,
+    y: 280
+  },
+  {
+    x: 100,
+    y: 210
+  },
+  {
+    x: 120,
+    y: 145
+  },
+  {
+    x: 100,
+    y: 80
+  }
+];
+
 /**
- * draw a polygon block.
- * @param {string} ctx - the context of the canvas that is created in the game.js file
- * @param {number} x - the abscissa
- * @param {number} y - the ordinate
- * @param {string} color - fill color
- */
+* draw a polygon block.
+* @param {string} ctx - the context of the canvas that is created in the game.js file
+* @param {number} x - the abscissa
+* @param {number} y - the ordinate
+* @param {string} color - fill color
+*/
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.moveTo(x, y);
-  ctx.lineTo(x + 10.5 * GAP, y + GAP);
-  ctx.lineTo(x + 21 * GAP, y);
-  ctx.lineTo(x + 31.5 * GAP, y + GAP);
-  ctx.lineTo(x + 42 * GAP, y);
-  ctx.lineTo(x + 42 * GAP, y + 7 * GAP);
-  ctx.lineTo(x + 40 * GAP, y + 13.5 * GAP);
-  ctx.lineTo(x + 42 * GAP, y + 20 * GAP);
-  ctx.lineTo(x + 42 * GAP, y + 27 * GAP);
-  ctx.lineTo(x + 31.5 * GAP, y + 26.5 * GAP);
-  ctx.lineTo(x + 21 * GAP, y + 27 * GAP);
-  ctx.lineTo(x + 10.5 * GAP, y + 26.5 * GAP);
-  ctx.lineTo(x, y + 27 * GAP);
-  ctx.lineTo(x, y + 20 * GAP);
-  ctx.lineTo(x + 2 * GAP, y + 13.5 * GAP);
-  ctx.lineTo(x, y + 7 * GAP);
+  coords.forEach(function (coord) {
+    ctx.lineTo(coord.x, coord.y);
+  });
   ctx.closePath();
   ctx.stroke();
   ctx.fill();
 };
 
 /**
- * find the maximum element.
- * @param {Array} arr - array of numbers
- * @return {number} return maximum element
- */
+* find the maximum element.
+* @param {Array} arr - array of numbers
+* @return {number} return maximum element
+*/
 var getMaxElement = function (arr) {
   var maxElement = arr[0];
   for (var i = 1; i < arr.length; i++) {
@@ -86,11 +137,11 @@ var getMaxElement = function (arr) {
 };
 
 /**
- * player statistics.
- * @param {string} ctx - the context of the canvas that is created in the game.js file
- * @param {Array} names - array of players that is created in the game.js file
- * @param {Array} times - array of numbers that is created in the game.js file
- */
+* player statistics.
+* @param {string} ctx - the context of the canvas that is created in the game.js file
+* @param {Array} names - array of players that is created in the game.js file
+* @param {Array} times - array of numbers that is created in the game.js file
+*/
 window.renderStatistics = function (ctx, names, times) {
   renderCloud(ctx, 110, 20, 'rgba(0, 0, 0, 0.7)');
   renderCloud(ctx, 100, 10, '#fff');
