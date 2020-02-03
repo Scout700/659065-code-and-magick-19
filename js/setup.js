@@ -197,8 +197,8 @@ userNameInput.addEventListener('invalid', function () {
 
 var setupWizardCoat = setupWizardForm.querySelector('.wizard-coat');
 var setupWizardEyes = setupWizardForm.querySelector('.wizard-eyes');
-var setupFireballColor = setupWizardForm.querySelector('.setup-fireball-wrap');
-
+var setupFireball = setupWizardForm.querySelector('.setup-fireball-wrap');
+/*
 setupWizardCoat.addEventListener('click', function () {
   var coatColor = getRandomElementFromArray(Wizard.COAT_COLORS);
   setupWizardCoat.style.fill = coatColor;
@@ -215,4 +215,24 @@ setupFireballColor.addEventListener('click', function () {
   var fireballColor = getRandomElementFromArray(Wizard.FIREBALL_COLORS);
   setupFireballColor.style.backgroundColor = fireballColor;
   userDialog.querySelector('input[name = fireball-color]').value = fireballColor;
-});
+}); */
+
+var onWizardClick = function (evt) {
+  if (evt.target === setupWizardCoat) {
+    var coatColor = getRandomElementFromArray(Wizard.COAT_COLORS);
+    setupWizardCoat.style.fill = coatColor;
+    userDialog.querySelector('input[name = coat-color]').value = coatColor;
+  }
+  if (evt.target === setupWizardEyes) {
+    var eyesColor = getRandomElementFromArray(Wizard.EYES_COLORS);
+    setupWizardEyes.style.fill = eyesColor;
+    userDialog.querySelector('input[name = eyes-color]').value = eyesColor;
+  }
+  if (evt.target === setupFireball) {
+    var fireballColor = getRandomElementFromArray(Wizard.FIREBALL_COLORS);
+    setupFireball.style.backgroundColor = fireballColor;
+    userDialog.querySelector('input[name = fireball-color]').value = fireballColor;
+  }
+};
+
+userDialog.addEventListener('click', onWizardClick);
