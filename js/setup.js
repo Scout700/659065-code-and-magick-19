@@ -197,9 +197,10 @@ userNameInput.addEventListener('invalid', function () {
 
 var setupWizardCoat = setupWizardForm.querySelector('.wizard-coat');
 var setupWizardEyes = setupWizardForm.querySelector('.wizard-eyes');
-var setupFireball = setupWizardForm.querySelector('.setup-fireball-wrap');
-/*
-setupWizardCoat.addEventListener('click', function () {
+var setupFireballWrap = setupWizardForm.querySelector('.setup-fireball-wrap');
+var setupFireball = setupFireballWrap.querySelector('.setup-fireball');
+
+/* setupWizardCoat.addEventListener('click', function () {
   var coatColor = getRandomElementFromArray(Wizard.COAT_COLORS);
   setupWizardCoat.style.fill = coatColor;
   userDialog.querySelector('input[name = coat-color]').value = coatColor;
@@ -211,27 +212,76 @@ setupWizardEyes.addEventListener('click', function () {
   userDialog.querySelector('input[name = eyes-color]').value = eyesColor;
 });
 
-setupFireballColor.addEventListener('click', function () {
+setupFireballWrap.addEventListener('click', function () {
   var fireballColor = getRandomElementFromArray(Wizard.FIREBALL_COLORS);
-  setupFireballColor.style.backgroundColor = fireballColor;
+  setupFireballWrap.style.backgroundColor = fireballColor;
   userDialog.querySelector('input[name = fireball-color]').value = fireballColor;
-}); */
+});
 
-var onWizardClick = function (evt) {
+/* var onWizardClick = function (evt) {
   if (evt.target === setupWizardCoat) {
     var coatColor = getRandomElementFromArray(Wizard.COAT_COLORS);
     setupWizardCoat.style.fill = coatColor;
-    userDialog.querySelector('input[name = coat-color]').value = coatColor;
+    userDialog.querySelector('input[name = "coat-color"]').value = coatColor;
   }
   if (evt.target === setupWizardEyes) {
     var eyesColor = getRandomElementFromArray(Wizard.EYES_COLORS);
     setupWizardEyes.style.fill = eyesColor;
-    userDialog.querySelector('input[name = eyes-color]').value = eyesColor;
+    userDialog.querySelector('input[name = "eyes-color"]').value = eyesColor;
   }
   if (evt.target === setupFireball) {
     var fireballColor = getRandomElementFromArray(Wizard.FIREBALL_COLORS);
-    setupFireball.style.backgroundColor = fireballColor;
-    userDialog.querySelector('input[name = fireball-color]').value = fireballColor;
+    setupFireballWrap.style.backgroundColor = fireballColor;
+    userDialog.querySelector('input[name = "fireball-color"]').value = fireballColor;
+  }
+};*/
+
+/* var onWizardClick = function (evt) {
+  switch (evt.target) {
+    case setupWizardCoat:
+    var coatColor = getRandomElementFromArray(Wizard.COAT_COLORS);
+    setupWizardCoat.style.fill = coatColor;
+    userDialog.querySelector('input[name = "coat-color"]').value = coatColor;
+    break;
+    case setupWizardEyes:
+    var eyesColor = getRandomElementFromArray(Wizard.EYES_COLORS);
+    setupWizardEyes.style.fill = eyesColor;
+    userDialog.querySelector('input[name = "eyes-color"]').value = eyesColor;
+    break;
+    case setupFireball:
+    var fireballColor = getRandomElementFromArray(Wizard.FIREBALL_COLORS);
+    setupFireballWrap.style.backgroundColor = fireballColor;
+    userDialog.querySelector('input[name = "fireball-color"]').value = fireballColor;
+    break;
+  }
+}; */
+
+var getColorElement = function (elem, color, input) {
+  if (elem === setupFireballWrap) {
+    elem.style.backgroundColor = color;
+  } else {
+    elem.style.fill = color;
+  }
+  input.value = color;
+};
+
+var onWizardClick = function (evt) {
+  var coatColor = getRandomElementFromArray(Wizard.COAT_COLORS);
+  var eyesColor = getRandomElementFromArray(Wizard.EYES_COLORS);
+  var fireballColor = getRandomElementFromArray(Wizard.FIREBALL_COLORS);
+  var inputCoat = userDialog.querySelector('input[name = "coat-color"]');
+  var inputEyes = userDialog.querySelector('input[name = "eyes-color"]');
+  var inputFireballs = userDialog.querySelector('input[name = "fireball-color"]');
+  switch (evt.target) {
+    case setupWizardCoat:
+      getColorElement(setupWizardCoat, coatColor, inputCoat);
+      break;
+    case setupWizardEyes:
+      getColorElement(setupWizardEyes, eyesColor, inputEyes);
+      break;
+    case setupFireball:
+      getColorElement(setupFireballWrap, fireballColor, inputFireballs);
+      break;
   }
 };
 
